@@ -58,12 +58,12 @@ The `.yaml` files in the root directory are to specify the kubernetes manifests 
     2. Run `app.py` inside the pod. Visit `http://localhost:<port>/` to view the Blog App. The Home Page should display the records inserted into the database in the previous step.
        Here is a sample output:
        <kbd>
-       ![image](https://user-images.githubusercontent.com/56164920/157334600-a48e0f8e-df27-4b01-a5eb-cdaea0acc9d7.png)
+        ![image](https://user-images.githubusercontent.com/56164920/158070358-d37498a4-1712-4048-bf19-3dfc86a214ef.png)
        </kbd>  
     3. You can view the database on the frontend exposed by mongo-express. To do so, on your browser, navigate to the `EXTERNAL_IP:port` exposed by the mongo-express service.
         Here is a sample output:
        <kbd>
-        ![image](https://user-images.githubusercontent.com/56164920/157334856-591ebff4-c642-43b0-b3de-c9dbd7ffb5a1.png)
+    ![image](https://user-images.githubusercontent.com/56164920/158070411-3dff479d-ee7f-4eeb-b38f-92ccc221c6aa.png)
        </kbd>
 
 ## MongoDB CLI
