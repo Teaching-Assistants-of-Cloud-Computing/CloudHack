@@ -1,0 +1,36 @@
+{% extends 'base.html'%} 
+{% block title %} Home {% endblock %} 
+{% block content %}
+    <div class="container mt-5 mb-5 px-10 ">
+        <div class="row">
+            {% if (posts is defined) and posts %} {% for post in posts %}
+            <div class="col-md-6 offset-md-3 mb-2 ">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text text-muted">
+                            {{ post['createdAt'].strftime('%Y-%m-%d') }}
+                        </p>
+                        <h4 class="card-title">{{ post['title'] }}</h4>
+                        <h6 class="card-title">- {{ post['author'] }}</h6>
+                        <p class="card-text">{{ post['tags'] }}</p>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="/edit-post?form={{ post['_id'] }}" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <form method="POST" action="/delete-post">
+                                <input type="hidden" name="_id" value="{{ post['_id'] }}" />
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %} {% else %}
+            <div class="col-md-6 offset-md-3 text-center">
+                <h4>You have not created any posts</h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
