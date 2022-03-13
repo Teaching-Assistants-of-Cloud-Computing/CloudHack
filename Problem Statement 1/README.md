@@ -1,10 +1,10 @@
-## Introduction
-MongoDB is a very popular data storage engine due to its document-oriented NoSQL features, Map Reduce calculation capability, and distributed key-value store. Services like MongoDB Atlas, a database-as-a-service on multi-cloud and MongoDB stitch, are used to build faster and better applications on serverless environments. You may read more on the wide and varied real-world applications of MongoDB [here](https://www.upgrad.com/blog/mongodb-real-world-use-cases/#:~:text=MongoDB%20is%20widely%20used%20for,%E2%80%9CStoring%20Log%20data%E2%80%9D%20document).
-
 ## Problem Statement
-Employ a microservices architecture to build a simple blogging platform with MongoDB and Flask.  
+Microservices are an architectural and organizational approach to software development where software is composed of small independent services that communicate over well-defined APIs. Microservices architectures make applications easier to scale and faster to develop, enabling innovation and accelerating time-to-market for new features.
+Docker and Kubernetes are almost synonymous to 'microservices' as they help package and manage the different components of a project/ application, thereby easing up the implementation of a microservices architecture.
 
-As a part of this problem statement, you will deploy a Kubernetes cluster with a mongodb server pod fronted with a web admin interface and a pod to run the flask app.
+**In this project, you will work with Docker and Kubernetes to make an easily deployable and portable blogging web-app using Flask and MongoDB.**  
+
+The microservices architecture will deploy a Kubernetes cluster with a mongodb server pod fronted with a web admin interface and a pod to run the flask app.
 
 ## Pre-Requisites/ Pre-Installation:
 1. Docker ([Windows](https://docs.docker.com/desktop/windows/install/) | [Ubuntu](https://docs.docker.com/engine/install/ubuntu/#:~:text=Install%20from%20a%20package&text=Go%20to%20https%3A%2F%2Fdownload,version%20you%20want%20to%20install) | [MacOS](https://docs.docker.com/desktop/mac/install/))
