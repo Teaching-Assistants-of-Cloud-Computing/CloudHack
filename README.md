@@ -8,7 +8,7 @@
 - To get started, download this repository (green icon at the top right of this repository that reads **Code** and then **Download ZIP**) 
 - Unzip the downloaded file.
 - Work with the directory corresponding to the problem statement assigned to you.
-- Markdown files like ```README.md``` are automatically rendered on Github. To read the instructions clearly, keep the corresponding tab with ```README.md``` file open.
+- Markdown files like ```README.md``` are automatically rendered on the Github website. To read the instructions clearly, keep the corresponding tab with ```README.md``` file open.
 
 ## Using GitHub
 
