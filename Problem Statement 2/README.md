@@ -8,7 +8,7 @@ The microservice architecture is one of the most popular forms of deployment, es
 
 - Docker( [Windows](https://docs.docker.com/desktop/windows/install/) | [Ubuntu](https://docs.docker.com/engine/install/ubuntu/#:~:text=Install%20from%20a%20package&text=Go%20to%20https%3A%2F%2Fdownload,version%20you%20want%20to%20install) | [MacOS](https://docs.docker.com/desktop/mac/install/) )
 - RabbitMQ Docker Image
-  - <https://hub.docker.com/_/rabbitmq>
+  - <https://hub.docker.com/_/rabbitmq>  
 It is advised to pull the images into your system before the day of the hackathon because of the network dependency and other uncertainties.
 - Support for language of choice + IDE
 
@@ -56,7 +56,7 @@ In this project, we’ll be taking a look at building and deploying a microservi
 8. Run the docker-compose files, send data to the producer and monitor the consumers to ensure they’re working properly.
 
 ## Some Notes To Consider
-1. When you build the docker-compose file, and run the entire microservice from there, some times your RabbitMQ consumers might fail because the RabbitMQ server is still booting while your program tries to connect immediately. Therefore, try adding a delay of 1 minute or so in your code, before the rest of the program starts running. This will give the RabbitMQ server and database you're using time to boot, before your code tries to interact with them. 
+1. When you build the docker-compose file, and run the entire microservice from there, sometimes your RabbitMQ consumers might fail because the RabbitMQ server is still booting while your program tries to connect immediately. Therefore, try adding a delay of 1 minute or so in your code, before the rest of the program starts running. This will give the RabbitMQ server and database you're using time to boot, before your code tries to interact with them. 
 
 2. Ensure the values like Consumer Name and Server URL being passed to the consumers are read from the system environment variables, and not hard-coded.
 
