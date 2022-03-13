@@ -1,0 +1,30 @@
+# Fill in the YAML configuration for the microservices 
+
+version: "2.1"
+services:
+  rabbitMQ_server:
+    image: 
+    container_name: 
+    ports:
+    restart:
+  producer:
+    image: 
+    container_name:
+    restart: 
+    ports:
+    depends_on:
+      - rabbitMQ_server
+  ride_matching:
+    image: 
+    container_name: 
+    depends_on:
+    environment:
+      - CONSUMER_ID=
+      - PRODUCER_ADDRESS=
+  ride_database:
+    image: 
+    container_name:
+    restart: 
+    depends_on:
+      - producer
+  
