@@ -114,6 +114,6 @@ docker-compose down
 │   │   └── requirements.txt # same as landing/app/requirements.txt
 │   │  
 ```
-- For queries regarding this project, write a mail to [me](mailto:shubhamgupta@pesu.pes.edu).
+
 
 
