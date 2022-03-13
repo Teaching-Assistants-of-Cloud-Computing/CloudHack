@@ -1,0 +1,14 @@
+# note: YAML definitions for multiple components/resources can be bundled together into one YAML file
+# '---' is used to separate the definitions of the components/resources
+
+# define a service for the mongodb server
+
+---
+# define a service for mongo-express
+# set the type to LoadBalancer and configure the ports
+# don't forget to specify a nodePort as well! a nodePort exposes the pod to applications outside the cluster. this will allow you to access the frontend admin interface from your host system
+
+---
+# define a `Service` for flask-app
+# set the type to LoadBalancer and configure the ports
+# don't forget to specify a nodePort as well! a nodePort exposes the pod to applications outside the cluster. this will allow you to access the frontend admin interface from your host system
