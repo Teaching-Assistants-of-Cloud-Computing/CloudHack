@@ -1,0 +1,15 @@
+version: '3.3'  # version of compose format
+
+services:
+  landing-service:
+    build: ./landing  # path is relative to docker-compose.yml location
+    hostname: landing-service
+    ports:
+      - 5050:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - landing-service
+  # Add more services below
+networks:
+  sample:
