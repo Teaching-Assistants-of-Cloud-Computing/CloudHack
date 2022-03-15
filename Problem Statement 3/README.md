@@ -49,6 +49,7 @@ docker-compose down
     #### 0.0. Add modules to ```landing/app/requirements.txt```
       - The following modules are required by the ```landing-service```:
       - ```flask```
+      - ```flask-restful```
       - ```requests```
     #### 0.1. Write the ```landing/Dockerfile```
       - Dockerfiles help building images using a given set of instructions. You can learn about the basics of Dockerfiles [here](https://docs.docker.com/engine/reference/builder/). Use this document to understand the meaning of certain keywords used by Dockerfiles.
