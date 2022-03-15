@@ -5,7 +5,7 @@
    * a description of the problem statement.
    * hints, helpers, and references to get started.
    * templates to build your project on.  
-- To get started, download this repository (green icon at the top right of this repository that reads **Code** and then **Download ZIP**) You do **NOT**, at any point in time, have to fork this repository or create a pull request.
+- To get started, download this repository (green icon at the top right of this repository that reads **Code** and then **Download ZIP**). You do **NOT** have to fork this repository or create a pull request.
 - Unzip the downloaded file.
 - Work with the directory corresponding to the problem statement assigned to you.
 - Markdown files like ```README.md``` are automatically rendered on the Github website. To read the instructions clearly, keep the corresponding tab with ```README.md``` file open.
