@@ -35,25 +35,30 @@ In this project, we’ll be taking a look at building and deploying a microservi
 	2. An HTTP server to listen to connection requests from new consumers and keep track of it. The endpoint for this will be `new_ride_matching_consumer`
 		1. This will just be a different path of the same HTTP server, or they can spawn it on a different port if they want to.
 		2. This will be listening to POST requests from new consumers that contains the consumer_id and store their IP address and name. The Name and IP address will just be stored as a map, in an array, where each map has name and IP as the keys, and the consumer_id and the request IP as the values
+		3. The stored array does not have a purpose in this experiment. However in real world examples, this would be used for health checks or logging.
 		   
-	3. A RabbitMQ client to create queues and send the data to consumers. The RabbitMQ client in the producer will register a new queue each for the ride-sharing consumer microservice and one for the database microservice, and will be responsible for sending out the data from the POST requests to consumers. 
+	3. A RabbitMQ client to create queues and send the data to consumers. The RabbitMQ client in the producer will register a single queue for all the ride-sharing consumer microservice and one for the database microservice, and will be responsible for sending out the data from the POST requests to consumers.  Therefore there'll be only 2 queues in total. 
 
 3. The “Ride-mapping” consumer has 3 main tasks -
 	1. When the program is started, it should read the server’s IP address and port from an environment variable, and the consumer’s ID from another environment variable which will be provided. This variable should be passed in the docker file when it’s being run. It should send an HTTP request to the producer registering itself as a consumer by sending the consumer ID and only then start accepting data from the RabbitMQ queue.
+	   HINT : When passing the URL, you can use the service name as the IP address, docker networks will resolve that using DNS, as long as they're on the same network. 
 
 	2. RabbitMQ Client - Listen for incoming requests on the “ride_match” queue and process it. 
 	   
 	3. Sleep for the required time. Each request to the consumer will contain a time in seconds. The entire process must sleep for that duration and not take in any new requests, done to simulate the micro-service being occupied with some task and being unable to take up new tasks. After it’s done sleeping, it should print the Task ID and consumer ID to the terminal.
 	   
+	4. Consumer ID can be any random data, but must be unique for each consumer, and should be passed as environment variable. Task ID can be anything that shows the task you sent is the one being printed. Could be a number, or the entire task, as long as it shows up in the logs correctly. 
+	   
 4. The “database-inserting” consumer will have only one task, storing the data in a database. Any database of choice can be used. The program will connect to RabbitMQ and listen to new mesages on the “database” queue, and on new requests it will insert the ride data into a database.
  
-5. Dockerize the application. Create Dockerfiles for the producer and consumer programs, ensuring to expose the appropriate ports for communication.
+5. Dockerize the application. Create Dockerfiles for the producer and consumer programs, ensuring to expose the appropriate ports for communication. Remember that every time you make a change, you need to rebuild docker images for the change to reflect in the containers.
 
 6. Create a docker-compose file that runs the RabbitMQ server, producer, one database microservice container, and 2 ride-matching containers. The producer’s IP and port must be passed as an environment variable to the ride-matching containers so they can use it to send the request.
 
 7. The docker-compose file should have a custom docker network that all these containers use. This will ensure that more consumer containers can be added externally by connecting them to the same network.
 
-8. Run the docker-compose files, send data to the producer and monitor the consumers to ensure they’re working properly.
+8. Run the docker-compose files, send data to the producer and monitor the consumers to ensure they’re working properly. You can view the output by checking docker logs. In case you're using Python, there might be additional steps or flags you need to provide for the logs to show up, please refer to [this](https://stackoverflow.com/questions/29663459/python-app-does-not-print-anything-when-running-detached-in-docker)
+
 
 ## Some Notes To Consider
 1. When you build the docker-compose file, and run the entire microservice from there, sometimes your RabbitMQ consumers might fail because the RabbitMQ server is still booting while your program tries to connect immediately. Therefore, try adding a delay of 1 minute or so in your code, before the rest of the program starts running. This will give the RabbitMQ server and database you're using time to boot, before your code tries to interact with them. 
