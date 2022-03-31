@@ -11,5 +11,69 @@ services:
         aliases:
           - landing-service
   # Add more services below
+  addition-service:
+    build: ./addition
+    hostname: addition-service
+    ports:
+      - 5051:5051
+    networks:
+      sample:
+        aliases:
+          - addition-service
+  subtraction-service:
+    build: ./subtraction
+    hostname: subtraction-service
+    ports:
+      - 5052:5052
+    networks:
+      sample:
+        aliases:
+          - subtraction-service
+  multiplication-service:
+    build: ./multiplication
+    hostname: multiplication-service
+    ports:
+      - 5053:5053
+    networks:
+      sample:
+        aliases:
+          - multiplication-service
+  division-service:
+    build: ./division
+    hostname: division-service
+    ports:
+      - 5054:5054
+    networks:
+      sample:
+        aliases:
+          - division-service
+  greaterthan-service:
+    build: ./greaterthan
+    hostname: greaterthan-service
+    ports:
+      - 5055:5055
+    networks:
+      sample:
+        aliases:
+          - greaterthan-service
+  exponent-service:
+    build: ./exponent
+    hostname: exponent-service
+    ports:
+      - 5056:5056
+    networks:
+      sample:
+        aliases:
+          - exponent-service
+  equal-service:
+    build: ./equal
+    hostname: equal-service
+    ports:
+      - 5057:5057
+    networks:
+      sample:
+        aliases:
+          - equal-service
+  
 networks:
   sample:

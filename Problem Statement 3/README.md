@@ -73,7 +73,7 @@ docker-compose down
       - Fix the type of the two variable values received from ```index.html```
     #### 1.1. Handle the None type exception 
       - This bug is observed only after fixing the previous bug.
-      - By default, no values are based on ```index.html```, causing the application to throw exceptions and crash.
+      - By default, no values are provided by ```index.html```, causing the application to throw exceptions and crash when localhost:5050 is loaded initially.
       - Avoid the crash by handling the exceptions raised in the landing-service app.
 
 2. ### Task-2 - Breaking the monolith architecture 🪨⛏️
